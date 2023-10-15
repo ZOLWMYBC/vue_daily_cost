@@ -9,10 +9,14 @@ import router from './router'
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
 
+import Log from './components/Log.vue'
+
 const app = createApp(App)
 
 app.use(createPinia())
 app.use(router)
 app.use(ElementPlus)
 
+app.component('Log',Log)
 app.mount('#app')
+
