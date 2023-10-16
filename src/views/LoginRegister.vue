@@ -1,6 +1,6 @@
 <template>
   <div class="demo">
-    <Log class="log"></Log>
+    <log class="demo-log"></log>
     <!-- ------------登录---------- -->
     <el-form v-if="isLogin" ref="ruleFormLoginRef" :model="loginForm" :rules="rulesLogin" label-width="120px" status-icon
       class="login-register">
@@ -169,21 +169,7 @@ const resetForm = (formEl: FormInstance | undefined) => {
 </script>
 
 <style>
-* {
-  margin: 0;
-  padding: 0;
-}
-
-.demo {
-  margin: 0 50%;
-  width: 380px;
-  height: 600px;
-  border: 3px solid black;
-  border-radius: 30px;
-  box-shadow: 2px 2px rgba(0, 0, 0, .3);
-}
-
-.demo .log {
+.demo .demo-log {
   margin: 10px 150px;
 }
 
