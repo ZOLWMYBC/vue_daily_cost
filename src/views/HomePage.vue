@@ -1,146 +1,111 @@
 <template>
-  <div class="demo">
+  <div class="demo demo-bgi">
 
-    <div class=" w3-cell-row">
-      <!-- 左列 -->
-      <div class="demo-left w3-container w3-cell m3 ">
-        <div class="left-btn-top">
-
-          <el-button class="img-btn">20</el-button>
-        </div>
-
-        <div class="w3-container m3 w3-cell w3-cell-bottom">
-          <el-button>
-            <el-icon :size="30">
-              <Document />
-            </el-icon>
-          </el-button>
-          <span>明细</span>
-        </div>
+    <header class="home-header">
+      <div class="header-left">
+        <el-button class="img-btn" icon="Trophy">20</el-button>
       </div>
-      <!-- 中间 -->
-      <div class="demo-center w3-container  w3-cell w3-cell-row m3">
-
-        <div class="w3-container m3 w3-cell w3-cell-bottom ">
-          <el-button><el-icon :size="30">
-              <List />
-            </el-icon></el-button>
-          <span>账单</span>
-        </div>
-
-        <div class="w3-container m3  w3-cell w3-cell-bottom home-add">
-          <el-button><el-icon :size="70">
-              <CirclePlusFilled />
-            </el-icon></el-button>
-
-        </div>
-        <div class="w3-container m3  w3-cell w3-cell-bottom">
-          <el-button><el-icon :size="30">
-              <Money />
-            </el-icon></el-button>
-          <span>存钱</span>
-        </div>
-      </div>
-      <!-- 右边 -->
-      <div class="demo-right w3-container  w3-cell m3">
-        <div class="right-btn-top">
-          <div class="demo-right-btn1">
-            <el-button>
-              <el-icon :size="30">
-                <Menu />
-              </el-icon>
-            </el-button>
-          </div>
-          <div class="demo-right-btn2">
-            <el-button>
-              <el-icon :size="30">
-                <Coin />
-              </el-icon>
-            </el-button>
-          </div>
-          <div class="demo-right-btn3">
-            <el-button>
-              <el-icon :size="30">
-                <Calendar />
-              </el-icon>
-            </el-button>
-          </div>
-        </div>
-        <div class="w3-container m3 w3-cell w3-cell-bottom">
-          <el-button><el-icon :size="30">
-              <HomeFilled />
-            </el-icon></el-button>
-          <span>我的</span>
-        </div>
+      <div class="header-right">
+        <el-button class="btn" icon="Menu"></el-button>
+        <el-button class="btn" icon="Coin"></el-button>
+        <el-button class="btn" icon="Calendar"></el-button>
       </div>
 
-    </div>
+    </header>
+
+    <footer class="home-footer">
+      <div class=" footer-btn">
+        <el-button class="btn" icon="Document">
+        </el-button>
+        <span>明细</span>
+      </div>
+      <div class="footer-btn">
+        <el-button class="btn" icon="List"></el-button>
+        <span>账单</span>
+      </div>
+      <div class="footer-btn ">
+        <el-button class="btn" icon="CirclePlus"></el-button>
+      </div>
+      <div class="footer-btn">
+        <el-button class="btn" icon="Money"></el-button>
+        <span>存钱</span>
+      </div>
+      <div class="footer-btn">
+        <el-button class="btn" icon="HomeFilled"></el-button>
+        <span>我的</span>
+      </div>
+
+    </footer>
   </div>
 </template>
 
 <script>
+this.$axios({
+  method: "post",
+  url: "", // 接口地址
+  data: {
+    keyword: "1"   // 传接口参数
+  }
+})
+  .then(response => {
+    console.log(response, "success");   // 成功的返回      
+  })
+  .catch(error => console.log(error, "error")); // 失败的返回
+
 export default {
 
 }
 </script>
 
 <style>
-.demo {
+.demo-bgi {
   background-image: url(src/components/icons/IconLog.jpg);
   background-repeat: round;
 }
 
-.demo-left,
-.demo-center,
-.demo-right {
-  /* border: 1px solid red; */
-  padding: 0;
+.home-header {
+  display: flex;
+  height: 300px;
+  width: 100%;
+  /* background-color: pink; */
 }
 
+.header-left {
+  padding: 20px;
+  width: 80%;
+  height: 100%;
+}
 
-.img-btn {
-  margin-left: 5px;
-  height: 40px;
-  width: 50px;
-  line-height: 40px;
-  background-image: url(../components/icons/IconLog.jpg);
+.header-right {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  height: 100%;
 
 }
 
-.demo-right-btn2 {
-  margin: 15px 0;
+.home-footer {
+  display: flex;
+  position: relative;
+  height: calc(100% - 300px);
+  width: 100%;
+  padding: 10px 10px;
+
+
 }
 
-.demo-right-btn1,
-.demo-right-btn2,
-.demo-right-btn3 {
+.footer-btn {
+  display: flex;
+  flex-direction: column;
+  padding: 200px 10px 0px 10px;
   text-align: center;
 }
 
-.right-btn-top,
-.left-btn-top {
-  padding-top: 20px;
-  height: 200px;
-}
-
-.w3-cell-row {
-  margin: 5px 0 10px 0;
-}
-
-.w3-cell-row .w3-container {
-  height: 575px;
-}
-
-.demo-left .w3-container,
-.demo-right .w3-container {
-  height: 375px;
-}
-
-.w3-container .el-button {
-  padding: 0;
-}
-
-.home-add {
-  padding-bottom: 50px;
+.btn {
+  height: 30px;
+  width: 30px;
+  padding: 20px;
+  font-size: 15px;
+  text-align: center;
 }
 </style>

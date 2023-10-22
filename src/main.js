@@ -12,6 +12,8 @@ import 'element-plus/dist/index.css'
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 
 import Log from './components/Log.vue'
+import axios from './axios/index'
+
 
 const app = createApp(App)
 
@@ -25,3 +27,4 @@ for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
 app.component('Log',Log)
 app.mount('#app')
 
+Vue.prototype.$axios = axios //全局注册，使用方法为:this.$axios
